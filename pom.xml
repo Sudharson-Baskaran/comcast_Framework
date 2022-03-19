@@ -78,11 +78,17 @@
 			<configuration>
 				<suiteXmlFiles>
 				<!-- TestNG suite XML files -->
-					<suiteXmlFile>testng.xml</suiteXmlFile>
+					<suiteXmlFile>.xml</suiteXmlFile>
 				</suiteXmlFiles>
 			</configuration>
 	</plugin>
  </plugins>
  </build>
+ <profiles>
+ <profile>
+      <id>SM</id>
+      
+    </profile>
+ </profiles>
 
 </project>
