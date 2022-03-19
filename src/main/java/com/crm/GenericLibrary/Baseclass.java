@@ -13,8 +13,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.crm.pomrepositoryLib.HomePage;
 import com.crm.pomrepositoryLib.LoginPage;
+
 
 public class Baseclass {
 	//creating object of generic library classes
@@ -23,18 +28,18 @@ public class Baseclass {
 	public FileUtility fLib=new FileUtility();
 	public webDriverUtility wLib=new webDriverUtility();
 	public static WebDriver driver=null;
-
+   
 	@BeforeSuite(groups = {"smokeTest","regressionTest"})
 	public void configBS()
 	{
-		System.out.println("----Open DataBase Connection--------");	
+		System.out.println("DB connection===");
 	}
 	//@Parameters("browser")
 	@BeforeClass(groups = {"smokeTest","regressionTest"})
 	public void configBC()throws IOException {
 		System.out.println("----Launch The Browser----");
 		String BROWSER = fLib.readDataFromPropertyFile("browser");
-
+        //String browser = System.getProperty("BROWSER");
 		if(BROWSER.equalsIgnoreCase("chrome"))
 		{
 			driver=new ChromeDriver();
@@ -55,12 +60,15 @@ public class Baseclass {
 
 	public void configBM() throws IOException {
 		String URL = fLib.readDataFromPropertyFile("url");
+		//String url = System.getProperty("URL");
 		wLib.maximiseWindow(driver);
 		wLib.waitUntilPageLoad(driver);
 		driver.get(URL);
 		System.out.println("---Login into App------------");
 		String USERNAME = fLib.readDataFromPropertyFile("username");
 		String PASSWORD = fLib.readDataFromPropertyFile("password");
+	    //String userName = System.getProperty("USERNAME");
+	    //String password = System.getProperty("PASSWORD");
 		LoginPage lp=new LoginPage(driver);
 		lp.loginToApp(USERNAME,PASSWORD);
 	}
@@ -87,6 +95,7 @@ public class Baseclass {
 	@AfterSuite(groups = {"smokeTest","regressionTest"})
 	public void configAS()
 	{
+		
 		System.out.println("-------Close DB Connection----------");	
 	}
 }

@@ -48,6 +48,7 @@ public class OrgTest extends Baseclass {
 		int randomNumber = jLib.getRandomNumber();
 		String orgName = eLib.getDataFromExcel("organization",1,1)+randomNumber;
 		String value = eLib.getDataFromExcel("organization",4,1);
+		System.out.println(value);
 		
 		//navigate to org link
 		HomePage hp=new HomePage(driver);
@@ -59,7 +60,7 @@ public class OrgTest extends Baseclass {
 
 		//create org with industry dropdown
 		creatingNewOrganizationPage cn=new creatingNewOrganizationPage(driver);
-		cn.select(value, orgName);
+		cn.select(orgName, value);
 		
 		
 		//verification step

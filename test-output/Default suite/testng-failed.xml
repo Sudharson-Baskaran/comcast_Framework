@@ -3,11 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="practise.CreateOrgWithIndustry">
+      <class name="practise.ExtentReport">
         <methods>
-          <include name="createOrg"/>
+          <include name="configBM"/>
+          <include name="configAM"/>
+          <include name="configAS"/>
+          <include name="configAC"/>
+          <include name="demoTest"/>
+          <include name="configBS"/>
+          <include name="configBC"/>
         </methods>
-      </class> <!-- practise.CreateOrgWithIndustry -->
+      </class> <!-- practise.ExtentReport -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

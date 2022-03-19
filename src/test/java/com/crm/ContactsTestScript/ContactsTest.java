@@ -42,7 +42,7 @@ public class ContactsTest extends Baseclass {
 		ContactInformationPage cp=new ContactInformationPage(driver);
 		String succMess = cp.getSuccessMss().getText();
 
-		//compare succmess with last name
+		//compare success with last name
 
 		Assert.assertTrue(succMess.contains(LastName), "Testscript failed");
 		System.out.println("Testscript passed");
